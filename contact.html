@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact | Tim deHaan</title>
+<meta name="description" content="Book a 20-minute intro call with Tim deHaan, or send a note.">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%23171714'/%3E%3Ctext x='50%25' y='57%25' text-anchor='middle' dominant-baseline='middle' font-family='Georgia,serif' font-size='32' fill='%23fff'%3ET%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="journal-page">
+  <nav class="site-nav" aria-label="Primary navigation">
+    <a class="mobile-site-home" href="index.html">Tim deHaan</a>
+    <button type="button" class="menu-toggle" aria-controls="site-menu" aria-expanded="false" aria-label="Menu"><span class="menu-icon" aria-hidden="true"><i></i><i></i><i></i></span></button>
+    <div class="nav-links" id="site-menu">
+      <a class="nav-home" href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="fractional-integrator.html">Integrator</a>
+      <a href="second-seat-assessment.html">Assessment</a>
+      <a href="praise.html">Praise</a>
+      <a href="contact.html" aria-current="page">Contact</a>
+      <span class="nav-actions"><a class="book-nav-link" href="https://calendar.app.google/o5hBPfkuwhMshJ2h6" target="_blank" rel="noopener">Book a Call</a></span>
+    </div>
+  </nav>
+
+  <main class="page-stack" id="main">
+    <header class="page-heading">
+      <h1>Let’s see if there’s an empty seat.</h1>
+      <p class="page-lede">Tell me a little about your business. If it’s a fit, we’ll book a 20-minute intro call. If it’s not, I’ll point you to someone who is.</p>
+    </header>
+
+    <ul class="contact-list">
+      <li><span>Intro call</span><a href="https://calendar.app.google/o5hBPfkuwhMshJ2h6" target="_blank" rel="noopener">Book a 20-minute call</a></li>
+      <li><span>Email</span><a href="mailto:tim@timdehaan.me">tim@timdehaan.me</a></li>
+      <li><span>Speaking</span><a href="mailto:tim@timdehaan.me?subject=Speaking%20inquiry">Speaking inquiries</a></li>
+    </ul>
+
+    <section class="section-block" aria-labelledby="note-title">
+      <h2 class="section-label" id="note-title">Send a note</h2>
+      <p class="form-note" style="margin-bottom:6px">Two lines is plenty: your company size and your biggest recurring issue.</p>
+
+      <!-- CONTACT FORM. Mode is set in site.js (FORM_MODE):
+           "mailto"  (default, works on GitHub Pages) opens the visitor's email app, pre-filled.
+           "netlify" uses Netlify Forms (data-netlify="true") if you host on Netlify. -->
+      <form class="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="contact-form">
+        <input type="hidden" name="form-name" value="contact">
+        <p class="hidden"><label>Don’t fill this out: <input name="bot-field"></label></p>
+        <div class="form-row">
+          <label>Name<input name="name" type="text" autocomplete="name" required></label>
+          <label>Email<input name="email" type="email" autocomplete="email" required></label>
+        </div>
+        <div class="form-row">
+          <label>Company<input name="company" type="text" autocomplete="organization"></label>
+          <label>Company size
+            <select name="size">
+              <option value="">Select…</option>
+              <option>Under 10 people</option>
+              <option>10 to 25 people</option>
+              <option>26 to 50 people</option>
+              <option>51 to 75 people</option>
+              <option>75+ people</option>
+            </select>
+          </label>
+        </div>
+        <label>Biggest recurring issue<textarea name="message" required></textarea></label>
+        <button type="submit">Send</button>
+        <p class="form-note" id="form-note">I’ll reply personally, usually within a business day.</p>
+      </form>
+    </section>
+
+    <section class="section-block" aria-labelledby="speaking-title">
+      <h2 class="section-label" id="speaking-title">Speaking</h2>
+      <div class="prose">
+        <p>I speak in person and virtually on learning organizations, leadership, coaching, conflict and strategy. For speaking inquiries, email <a href="mailto:tim@timdehaan.me?subject=Speaking%20inquiry">tim@timdehaan.me</a>.</p>
+      </div>
+    </section>
+  </main>
+</div>
+
+<footer class="utility-footer">
+  <div class="utility-footer-links">
+    <a href="contact.html">Contact Me</a>
+    <a href="second-seat-assessment.html">Assessment</a>
+    <a href="mailto:tim@timdehaan.me">Email</a>
+    <span>© <span data-year>2026</span> Tim deHaan</span>
+  </div>
+</footer>
+<script src="site.js"></script>
+</body>
+</html>
