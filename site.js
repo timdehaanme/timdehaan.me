@@ -1,10 +1,5 @@
 // timdehaan.me — menu, contact form, footer year. No dependencies.
 (function () {
-  // ---- Contact form mode -------------------------------------------------
-  // "mailto"  : works on GitHub Pages. Opens the visitor's email app, pre-filled.
-  // "netlify" : use if you host on Netlify. The form has data-netlify="true",
-  //             so Netlify Forms will collect submissions in your dashboard.
-  var FORM_MODE = "mailto";
   var EMAIL = "tim@timdehaan.me";
 
   // Footer year
@@ -42,25 +37,34 @@
     }).observe(sentinel);
   }
 
-  // Contact form
+  // Contact form — posts to Web3Forms and shows the result on the page.
+  // (Without JavaScript the form still posts normally and Web3Forms shows its own thank-you page.)
   var form = document.getElementById("contact-form");
   if (form) {
+    var note = document.getElementById("form-note");
+    var button = form.querySelector('button[type="submit"]');
     form.addEventListener("submit", function (e) {
-      if (FORM_MODE === "netlify") return;
       e.preventDefault();
       var d = new FormData(form);
-      var subject = "Intro call: " + (d.get("company") || d.get("name"));
-      var body =
-        "Name: " + d.get("name") +
-        "\nEmail: " + d.get("email") +
-        "\nCompany: " + (d.get("company") || "-") +
-        "\nCompany size: " + (d.get("size") || "-") +
-        "\n\nBiggest recurring issue:\n" + d.get("message");
-      window.location.href =
-        "mailto:" + EMAIL + "?subject=" + encodeURIComponent(subject) +
-        "&body=" + encodeURIComponent(body);
-      var note = document.getElementById("form-note");
-      if (note) note.textContent = "Your email app should open with the message ready to send. If it doesn’t, email " + EMAIL + " directly.";
+      d.set("subject", "Intro call: " + (d.get("company") || d.get("name")));
+      d.set("replyto", d.get("email"));
+      button.disabled = true;
+      button.textContent = "Sending…";
+      fetch(form.action, { method: "POST", headers: { Accept: "application/json" }, body: d })
+        .then(function (r) { return r.json(); })
+        .then(function (res) {
+          if (!res.success) throw new Error(res.message || "Send failed");
+          form.querySelectorAll("label, .form-row, button").forEach(function (el) { el.style.display = "none"; });
+          note.innerHTML = "Thanks, it’s on its way. I’ll reply personally, usually within a business day. " +
+            'Want to skip ahead? <a href="https://calendar.app.google/o5hBPfkuwhMshJ2h6" target="_blank" rel="noopener">Book a 20-minute call</a>.';
+          note.style.color = "var(--ink)";
+          note.style.fontSize = "17px";
+        })
+        .catch(function () {
+          button.disabled = false;
+          button.textContent = "Send to Tim";
+          note.innerHTML = 'Sorry, that didn’t send. Please email <a href="mailto:' + EMAIL + '">' + EMAIL + "</a> instead.";
+        });
     });
   }
 })();
