@@ -59,7 +59,9 @@ body.home{--ink:#141414;--body:#242424;--muted:#606060}
 .intro-keep{white-space:nowrap}
 .home .site-nav{margin:0}
 .home .utility-footer{display:none}
-.mobile-home{display:none}
+/* Pitch + booking button under the intro (left-aligned on desktop, centred on phones) */
+.mobile-home{display:block;width:min(100%,764px);margin:44px auto 0;padding:0 var(--gutter);text-align:left}
+.mobile-home p{margin:0 0 18px;font-size:20px;line-height:1.55;color:var(--body);max-width:560px}
 
 /* ---------- Inner page stack ---------- */
 .page-stack{display:flex;flex-direction:column;gap:52px}
@@ -155,7 +157,7 @@ body.home{--ink:#141414;--body:#242424;--muted:#606060}
 .card-grid li{display:flex;min-width:0}
 .card{display:flex;flex-direction:column;width:100%;padding:28px 25px;border:1px solid #e8e5dc;border-radius:6px;background:#f8f7f2;color:inherit;text-decoration:none;transition:border-color .15s}
 a.card:hover,.card:hover{border-color:#aaa698;color:inherit}
-.card-category{margin:0 0 10px;font:11px/1.5 var(--font-interface);letter-spacing:1.4px;text-transform:uppercase;color:var(--soft-2)}
+.card-category{margin:0 0 10px;font:11px/1.5 var(--font-interface);letter-spacing:1.4px;text-transform:uppercase;color:#625f57}
 .card h3{margin:0 0 14px;font-size:24px;line-height:1.2;letter-spacing:-.3px;text-wrap:pretty}
 .card p{margin:0 0 26px;font-size:16px;line-height:1.6;color:var(--text-2)}
 .card p:last-child{margin-bottom:0}
@@ -294,7 +296,7 @@ a.card:hover,.card:hover{border-color:#aaa698;color:inherit}
   .home .mobile-site-home{visibility:hidden}
   .home .site-nav.stuck .mobile-site-home{visibility:visible}
   .mobile-home{display:block;width:100%;max-width:438px;margin:0 auto;padding:30px var(--gutter) 20px;text-align:center}
-  .mobile-home p{margin:0 0 18px;font-size:20px;line-height:1.55;color:var(--body)}
+  .mobile-home p{margin:0 0 18px;font-size:20px;line-height:1.55;color:var(--body);max-width:none}
   .mobile-home .funnel-button{width:100%;justify-content:center}
   .home .utility-footer{display:block}
 
