@@ -59,9 +59,8 @@ body.home{--ink:#141414;--body:#242424;--muted:#606060}
 .intro-keep{white-space:nowrap}
 .home .site-nav{margin:0}
 .home .utility-footer{display:none}
-/* Pitch + booking button under the intro (left-aligned on desktop, centred on phones) */
-.mobile-home{display:block;width:min(100%,764px);margin:44px auto 0;padding:0 var(--gutter);text-align:left}
-.mobile-home p{margin:0 0 18px;font-size:20px;line-height:1.55;color:var(--body);max-width:560px}
+/* Pitch + booking button under the intro: phones only */
+.mobile-home{display:none}
 
 /* ---------- Inner page stack ---------- */
 .page-stack{display:flex;flex-direction:column;gap:52px}
